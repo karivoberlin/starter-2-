@@ -19,14 +19,24 @@ document.querySelectorAll(".main-nav a").forEach((link) => {
 const reveals = document.querySelectorAll(".reveal");
 
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+  entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
+      setTimeout(() => entry.target.classList.add("visible"), index * 60);
     }
   });
 }, { threshold: 0.15 });
 
 reveals.forEach((element) => revealObserver.observe(element));
+
+document.querySelectorAll(".glass-hover").forEach((card) => {
+  card.addEventListener("mousemove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty("--x", `${x}%`);
+    card.style.setProperty("--y", `${y}%`);
+  });
+});
 
 const menuData = {
   vorspeisen: [
@@ -63,7 +73,7 @@ function renderMenu(category) {
 
   setTimeout(() => {
     menuGrid.innerHTML = menuData[category].map(item => `
-      <article class="menu-card">
+      <article class="menu-card glass-hover">
         <div class="menu-icon">${item.icon}</div>
         <div>
           <h3>${item.name}</h3>
@@ -72,6 +82,16 @@ function renderMenu(category) {
         <strong class="menu-price">${item.price}</strong>
       </article>
     `).join("");
+
+    document.querySelectorAll(".menu-card.glass-hover").forEach((card) => {
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty("--x", `${x}%`);
+        card.style.setProperty("--y", `${y}%`);
+      });
+    });
 
     menuGrid.classList.remove("menu-changing");
   }, 180);

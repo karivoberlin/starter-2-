@@ -8,9 +8,9 @@
   --black: #050505;
   --dark: #0d0d0d;
   --anthracite: #151515;
-  --card: rgba(255, 255, 255, 0.078);
-  --card-strong: rgba(255, 255, 255, 0.105);
-  --line: rgba(255, 255, 255, 0.13);
+  --card: rgba(255, 255, 255, 0.082);
+  --card-strong: rgba(255, 255, 255, 0.12);
+  --line: rgba(255, 255, 255, 0.14);
   --gold: #d6aa5f;
   --gold-light: #f0d49a;
   --white: #ffffff;
@@ -18,6 +18,7 @@
   --radius-xl: 34px;
   --radius-lg: 24px;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+  --gold-shadow: 0 20px 50px rgba(214, 170, 95, 0.24);
   --container: 1180px;
 }
 
@@ -41,6 +42,35 @@ body {
     radial-gradient(circle at 85% 18%, rgba(255, 255, 255, 0.08), transparent 25%),
     radial-gradient(circle at 50% 85%, rgba(214, 170, 95, 0.08), transparent 28%),
     linear-gradient(145deg, #050505 0%, #111111 48%, #050505 100%);
+}
+
+.ambient {
+  position: fixed;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: rgba(214,170,95,0.12);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: -4;
+  animation: ambientMove 13s ease-in-out infinite;
+}
+
+.ambient-one {
+  top: 16%;
+  left: -120px;
+}
+
+.ambient-two {
+  right: -140px;
+  bottom: 18%;
+  animation-delay: -5s;
+}
+
+@keyframes ambientMove {
+  50% {
+    transform: translate3d(40px, -35px, 0) scale(1.08);
+  }
 }
 
 a {
@@ -96,6 +126,7 @@ a {
   font-family: "Cormorant Garamond", serif;
   font-size: 28px;
   font-weight: 700;
+  box-shadow: var(--gold-shadow);
 }
 
 .brand-text {
@@ -112,8 +143,28 @@ a {
   font-weight: 600;
 }
 
+.main-nav a {
+  position: relative;
+  transition: 0.25s ease;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 2px;
+  background: var(--gold-light);
+  transition: 0.25s ease;
+}
+
 .main-nav a:hover {
   color: var(--gold-light);
+}
+
+.main-nav a:hover::after {
+  width: 100%;
 }
 
 .header-cta,
@@ -132,7 +183,7 @@ a {
 .header-cta:hover,
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 38px rgba(214, 170, 95, 0.22);
+  box-shadow: var(--gold-shadow);
 }
 
 .menu-toggle {
@@ -253,6 +304,21 @@ p {
   padding: 15px 23px;
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: translateX(-120%);
+  transition: 0.55s ease;
+}
+
+.btn:hover::before {
+  transform: translateX(120%);
 }
 
 .btn-primary {
@@ -285,9 +351,28 @@ p {
 .hours-card,
 .map-wrap {
   border: 1px solid var(--line);
-  background: var(--card);
-  backdrop-filter: blur(14px);
+  background: linear-gradient(145deg, rgba(255,255,255,0.105), rgba(255,255,255,0.055));
+  backdrop-filter: blur(16px);
   box-shadow: var(--shadow);
+}
+
+.glass-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(240,212,154,0.18), transparent 34%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.glass-hover:hover::before {
+  opacity: 1;
 }
 
 .hero-badges div {
@@ -403,7 +488,12 @@ p {
   display: grid;
   place-items: center;
   text-align: center;
-  box-shadow: var(--shadow);
+  box-shadow: var(--gold-shadow);
+  animation: noteFloat 4s ease-in-out infinite;
+}
+
+@keyframes noteFloat {
+  50% { transform: translateY(-10px); }
 }
 
 .floating-note strong {
@@ -484,6 +574,7 @@ p {
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   color: #17110a;
   transform: translateY(-2px);
+  box-shadow: var(--gold-shadow);
 }
 
 .menu-layout {
@@ -546,7 +637,7 @@ p {
 .menu-card:hover {
   transform: translateY(-5px);
   border-color: rgba(214,170,95,0.42);
-  background: rgba(255,255,255,0.105);
+  background: rgba(255,255,255,0.12);
 }
 
 .menu-icon {
@@ -758,13 +849,13 @@ textarea {
 
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: 0.75s ease;
+  transform: translateY(34px) scale(0.985);
+  transition: 0.82s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 @media (max-width: 1050px) {
