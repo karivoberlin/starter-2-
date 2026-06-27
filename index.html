@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Restaurant Starter V1 | Karivo Vorlage</title>
-  <meta name="description" content="Professionelle Starter-Restaurant-Website mit modernem Design, Hero-Bereich, Navigation und sauberem Grundaufbau." />
+  <title>Restaurant Starter V2 | Hero & Über uns</title>
+  <meta name="description" content="Karivo Restaurant Starter Vorlage V2 mit verbessertem Hero, Über-uns-Bereich, Highlight-Karten und professionellem Responsive Design." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,8 @@
 </head>
 
 <body>
+  <div class="page-bg"></div>
+
   <header class="site-header" id="siteHeader">
     <a href="#start" class="brand">
       <span class="brand-mark">R</span>
@@ -23,8 +25,8 @@
 
     <nav class="main-nav" id="mainNav">
       <a href="#start">Start</a>
-      <a href="#konzept">Konzept</a>
-      <a href="#vorteile">Highlights</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#ambiente">Ambiente</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
 
@@ -38,88 +40,122 @@
 
   <main>
     <section class="hero" id="start">
-      <div class="hero-shade"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-light"></div>
 
       <div class="container hero-grid">
         <div class="hero-content reveal">
-          <p class="eyebrow">Moderne Restaurantkultur</p>
-          <h1>Ein Ort für gutes Essen und besondere Abende.</h1>
+          <p class="eyebrow">Restaurant · Bar · Genuss</p>
+          <h1>Feine Küche in moderner Atmosphäre.</h1>
           <p class="hero-copy">
-            Diese Vorlage ist die Grundlage für eine hochwertige Restaurant-Website.
-            Später werden nur noch Bilder, Texte, Kontaktdaten und Speisekarte ersetzt.
+            Ein stilvoller erster Eindruck für Restaurants, Cafés und Bistros.
+            Texte, Bilder und Kontaktdaten können später schnell ausgetauscht werden.
           </p>
 
           <div class="hero-actions">
             <a href="#kontakt" class="btn btn-primary">Tisch anfragen</a>
-            <a href="#konzept" class="btn btn-secondary">Mehr erfahren</a>
+            <a href="#ueber-uns" class="btn btn-secondary">Restaurant entdecken</a>
+          </div>
+
+          <div class="hero-badges">
+            <div>
+              <strong>4,8★</strong>
+              <span>Gästebewertung</span>
+            </div>
+            <div>
+              <strong>12–22 Uhr</strong>
+              <span>Heute geöffnet</span>
+            </div>
+            <div>
+              <strong>Frisch</strong>
+              <span>Täglich gekocht</span>
+            </div>
           </div>
         </div>
 
-        <aside class="hero-card reveal">
-          <span class="card-label">Heute geöffnet</span>
-          <strong>12:00 – 22:00 Uhr</strong>
-          <p>Platzhalter für Öffnungszeiten, Adresse oder kurze Kundeninfo.</p>
+        <aside class="hero-reservation reveal">
+          <span class="card-label">Schnellanfrage</span>
+          <h3>Heute noch einen Tisch sichern.</h3>
+          <p>Dieser Bereich wird später mit Reservierungsformular oder Kontaktbutton erweitert.</p>
+          <a href="#kontakt" class="small-link">Reservierung starten →</a>
         </aside>
       </div>
 
-      <div class="scroll-hint">Scroll</div>
+      <div class="scroll-hint">
+        <span></span>
+        Scroll
+      </div>
     </section>
 
-    <section class="section intro" id="konzept">
+    <section class="section about" id="ueber-uns">
       <div class="container split">
-        <div class="image-panel reveal">
-          <span>Restaurantbild</span>
+        <div class="about-visual reveal">
+          <div class="about-image main-img">
+            <span>Hauptbild austauschen</span>
+          </div>
+          <div class="floating-note">
+            <strong>15+</strong>
+            <span>Jahre Erfahrung</span>
+          </div>
         </div>
 
         <div class="text-panel reveal">
-          <p class="eyebrow">Das Konzept</p>
-          <h2>Hochwertig, klar und einfach anpassbar.</h2>
+          <p class="eyebrow">Über uns</p>
+          <h2>Ein Restaurant, das Geschmack und Gastfreundschaft verbindet.</h2>
           <p>
-            In dieser ersten Version steht das Fundament: Navigation, Hero, Typografie,
-            Farben, Komponenten und Responsive-Struktur. Alles ist so aufgebaut, dass
-            die nächsten Versionen sauber erweitert werden können.
+            Dieser Text ist realistisch formuliert und kann später an den Kunden angepasst werden.
+            Hier steht die Geschichte des Restaurants, die Art der Küche und der besondere Charakter
+            des Betriebs.
+          </p>
+          <p>
+            Die Website wirkt bereits wie eine echte Restaurantseite und nicht wie ein leerer Baukasten.
+            Genau dadurch lässt sie sich später besser verkaufen.
           </p>
 
-          <div class="mini-grid">
-            <div>
-              <strong>Modernes Design</strong>
-              <span>Schwarz, Anthrazit, Gold und Weiß.</span>
-            </div>
-            <div>
-              <strong>Saubere Basis</strong>
-              <span>Perfekt für spätere Erweiterungen.</span>
-            </div>
+          <div class="about-highlights">
+            <article>
+              <span>🍽️</span>
+              <strong>Frische Zutaten</strong>
+              <p>Sorgfältig ausgewählt und mit Liebe verarbeitet.</p>
+            </article>
+
+            <article>
+              <span>👨‍🍳</span>
+              <strong>Erfahrene Küche</strong>
+              <p>Handwerk, Qualität und kreative Ideen auf dem Teller.</p>
+            </article>
+
+            <article>
+              <span>❤️</span>
+              <strong>Gastfreundschaft</strong>
+              <p>Ein warmer Empfang und ein angenehmes Ambiente.</p>
+            </article>
+
+            <article>
+              <span>📍</span>
+              <strong>Gute Lage</strong>
+              <p>Ideal für Mittagessen, Abendessen oder besondere Anlässe.</p>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section features" id="vorteile">
+    <section class="section ambiance" id="ambiente">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Starter Foundation</p>
-          <h2>Alles vorbereitet für eine verkaufsfertige Website.</h2>
-          <p>Diese Grundversion ist bewusst sauber, elegant und nicht überladen.</p>
+          <p class="eyebrow">Ambiente</p>
+          <h2>Räume, die Gäste willkommen heißen.</h2>
+          <p>
+            Dieser Bereich zeigt später echte Bilder vom Restaurant.
+            Für V2 ist er als hochwertiger visueller Abschnitt vorbereitet.
+          </p>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature-card reveal">
-            <span>01</span>
-            <h3>Premium Navigation</h3>
-            <p>Sticky Header, CTA und mobiles Menü sind vorbereitet.</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <span>02</span>
-            <h3>Hero Bereich</h3>
-            <p>Großes Hintergrundbild, starke Headline und klare Buttons.</p>
-          </article>
-
-          <article class="feature-card reveal">
-            <span>03</span>
-            <h3>Design-System</h3>
-            <p>Farben, Abstände, Schriften und Karten sind einheitlich.</p>
-          </article>
+        <div class="ambiance-grid reveal">
+          <div class="ambiance-card large"><span>Innenbereich</span></div>
+          <div class="ambiance-card"><span>Gerichte</span></div>
+          <div class="ambiance-card"><span>Außenbereich</span></div>
         </div>
       </div>
     </section>
@@ -127,11 +163,10 @@
     <section class="section contact-preview" id="kontakt">
       <div class="container contact-box reveal">
         <div>
-          <p class="eyebrow">Kontaktbereich</p>
-          <h2>Bereit für Reservierung, Adresse und Öffnungszeiten.</h2>
+          <p class="eyebrow">Kontakt</p>
+          <h2>Reservierung und Kontaktdaten kommen in V4.</h2>
           <p>
-            Der vollständige Kontakt- und Reservierungsbereich kommt in einer späteren Version.
-            Hier ist bereits der Platz dafür vorbereitet.
+            V2 konzentriert sich auf Hero, Über-uns-Bereich, visuelle Struktur und erste Verkaufswirkung.
           </p>
         </div>
 
@@ -144,7 +179,7 @@
     <div class="container footer-grid">
       <div>
         <strong>Restaurant Name</strong>
-        <p>Karivo Restaurant Starter Vorlage – Version 1 Foundation.</p>
+        <p>Karivo Restaurant Starter Vorlage – Version 2 Hero & Über uns.</p>
       </div>
 
       <div class="footer-links">
