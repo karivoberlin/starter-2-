@@ -1,9 +1,19 @@
+const loader = document.getElementById("loader");
 const header = document.getElementById("siteHeader");
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
+const backToTop = document.getElementById("backToTop");
+const cookieBanner = document.getElementById("cookieBanner");
+const acceptCookies = document.getElementById("acceptCookies");
+const cookieSettings = document.getElementById("cookieSettings");
+
+window.addEventListener("load", () => {
+  setTimeout(() => loader.classList.add("hide"), 650);
+});
 
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 70);
+  backToTop.classList.toggle("visible", window.scrollY > 520);
 });
 
 menuToggle.addEventListener("click", () => {
@@ -14,6 +24,25 @@ document.querySelectorAll(".main-nav a").forEach((link) => {
   link.addEventListener("click", () => {
     mainNav.classList.remove("open");
   });
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+if (localStorage.getItem("restaurantStarterCookies") === "accepted") {
+  cookieBanner.classList.add("hidden");
+}
+
+acceptCookies.addEventListener("click", () => {
+  localStorage.setItem("restaurantStarterCookies", "accepted");
+  cookieBanner.classList.add("hidden");
+});
+
+cookieSettings.addEventListener("click", (event) => {
+  event.preventDefault();
+  localStorage.removeItem("restaurantStarterCookies");
+  cookieBanner.classList.remove("hidden");
 });
 
 const reveals = document.querySelectorAll(".reveal");
@@ -68,6 +97,18 @@ const menuData = {
 const menuGrid = document.getElementById("menuGrid");
 const tabs = document.querySelectorAll(".tab");
 
+function addGlassTracking() {
+  document.querySelectorAll(".menu-card.glass-hover").forEach((card) => {
+    card.addEventListener("mousemove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty("--x", `${x}%`);
+      card.style.setProperty("--y", `${y}%`);
+    });
+  });
+}
+
 function renderMenu(category) {
   menuGrid.classList.add("menu-changing");
 
@@ -83,16 +124,7 @@ function renderMenu(category) {
       </article>
     `).join("");
 
-    document.querySelectorAll(".menu-card.glass-hover").forEach((card) => {
-      card.addEventListener("mousemove", (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 100;
-        const y = ((event.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty("--x", `${x}%`);
-        card.style.setProperty("--y", `${y}%`);
-      });
-    });
-
+    addGlassTracking();
     menuGrid.classList.remove("menu-changing");
   }, 180);
 }

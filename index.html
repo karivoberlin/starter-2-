@@ -4,8 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Restaurant Starter V5 | Design Upgrade</title>
-  <meta name="description" content="Karivo Restaurant Starter Vorlage V5 mit Design Upgrade, Glow Buttons, Glass Cards, sanften Animationen und hochwertigem Feinschliff." />
+  <title>Restaurant Name | Moderne Restaurant-Website</title>
+  <meta name="description" content="Moderne Restaurant-Website mit Speisekarte, Reservierung, Öffnungszeiten, Google Maps und Kontakt." />
+  <meta name="keywords" content="Restaurant, Reservierung, Speisekarte, Essen, Berlin" />
+  <meta name="author" content="Karivo" />
+
+  <meta property="og:title" content="Restaurant Name | Moderne Restaurant-Website" />
+  <meta property="og:description" content="Feine Küche in moderner Atmosphäre. Jetzt Tisch anfragen und Speisekarte entdecken." />
+  <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,17 +21,24 @@
 </head>
 
 <body>
+  <div class="loader" id="loader">
+    <div>
+      <span class="loader-logo">R</span>
+      <p>Restaurant Name</p>
+    </div>
+  </div>
+
   <div class="page-bg"></div>
   <div class="ambient ambient-one"></div>
   <div class="ambient ambient-two"></div>
 
   <header class="site-header" id="siteHeader">
-    <a href="#start" class="brand">
+    <a href="#start" class="brand" aria-label="Zur Startseite">
       <span class="brand-mark">R</span>
       <span class="brand-text">Restaurant Name</span>
     </a>
 
-    <nav class="main-nav" id="mainNav">
+    <nav class="main-nav" id="mainNav" aria-label="Hauptnavigation">
       <a href="#start">Start</a>
       <a href="#ueber-uns">Über uns</a>
       <a href="#speisekarte">Speisekarte</a>
@@ -51,8 +64,8 @@
           <p class="eyebrow">Restaurant · Bar · Genuss</p>
           <h1>Feine Küche in moderner Atmosphäre.</h1>
           <p class="hero-copy">
-            Eine hochwertige Starter-Website für Restaurants, Cafés und Bistros.
-            V5 bringt den visuellen Feinschliff mit Glass-Effekten, Glow-Buttons und sanften Animationen.
+            Eine verkaufsfertige Starter-Website für Restaurants, Cafés und Bistros.
+            Bilder, Texte, Speisekarte und Kontaktdaten können später schnell ersetzt werden.
           </p>
 
           <div class="hero-actions">
@@ -288,7 +301,7 @@
     <div class="container footer-grid">
       <div>
         <strong>Restaurant Name</strong>
-        <p>Karivo Restaurant Starter Vorlage – Version 5 Design Upgrade.</p>
+        <p>Karivo Restaurant Starter Vorlage – verkaufsfertige Final-Version.</p>
       </div>
 
       <div class="footer-links">
@@ -301,9 +314,17 @@
       <div class="footer-links">
         <a href="#">Impressum</a>
         <a href="#">Datenschutz</a>
+        <a href="#" id="cookieSettings">Cookie Einstellungen</a>
       </div>
     </div>
   </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Nach oben">↑</button>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <p>Diese Website verwendet Cookies für eine bessere Nutzererfahrung.</p>
+    <button id="acceptCookies">Akzeptieren</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
